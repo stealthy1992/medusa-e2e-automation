@@ -1,0 +1,66 @@
+{
+  "consumer": { "name": "MedusaStorefrontClient" },
+  "provider": { "name": "MedusaStoreAPI" },
+  "interactions": [
+    {
+      "description": "a request for the customer order list",
+      "request": {
+        "method": "GET",
+        "path": "/store/orders",
+        "headers": {
+          "x-publishable-api-key": "pk_fd323a11f1d1ef3641386b1067e890fc2c8054989c26bcfd06119a478c428455",
+          "Authorization": "Bearer <customer_token>"
+        }
+      },
+      "response": {
+        "status": 200,
+        "headers": { "Content-Type": "application/json" },
+        "body": {
+          "orders": [
+            {
+              "id": "order_01",
+              "status": "pending",
+              "total": 4000,
+              "currency_code": "usd",
+              "payment_status": "awaiting",
+              "fulfillment_status": "not_fulfilled",
+              "items": [
+                {
+                  "id": "item_01",
+                  "title": "Medusa Sweatshirt",
+                  "quantity": 1,
+                  "unit_price": 4000,
+                  "subtotal": 4000
+                }
+              ],
+              "created_at": "2026-01-01T00:00:00.000Z"
+            }
+          ],
+          "count": 1,
+          "offset": 0,
+          "limit": 10
+        },
+        "matchingRules": {
+          "$.body.orders": { "match": "type", "min": 1 },
+          "$.body.orders[*].id": { "match": "type" },
+          "$.body.orders[*].status": { "match": "type" },
+          "$.body.orders[*].total": { "match": "type" },
+          "$.body.orders[*].currency_code": { "match": "type" },
+          "$.body.orders[*].payment_status": { "match": "type" },
+          "$.body.orders[*].fulfillment_status": { "match": "type" },
+          "$.body.orders[*].items": { "match": "type", "min": 1 },
+          "$.body.orders[*].items[*].id": { "match": "type" },
+          "$.body.orders[*].items[*].title": { "match": "type" },
+          "$.body.orders[*].items[*].quantity": { "match": "type" },
+          "$.body.orders[*].items[*].unit_price": { "match": "type" },
+          "$.body.orders[*].items[*].subtotal": { "match": "type" },
+          "$.body.orders[*].created_at": { "match": "type" },
+          "$.body.count": { "match": "type" },
+          "$.body.offset": { "match": "type" },
+          "$.body.limit": { "match": "type" }
+        }
+      }
+    }
+  ],
+  "metadata": { "pactSpecification": { "version": "2.0.0" } }
+}

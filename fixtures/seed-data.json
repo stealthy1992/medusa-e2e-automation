@@ -1,0 +1,91 @@
+{
+  "generatedAt": "2026-06-27T16:05:36.464Z",
+  "collections": {
+    "shirts": "pcol_01KVJ8JY9HHMBBYG3K37VRCKYM",
+    "bottoms": "pcol_01KVJ8JYDPYT2JADMFPS9NMQX3"
+  },
+  "categories": {
+    "tops": "pcat_01KVJ8JYH0TE3QY1GZM58TXKH6",
+    "accessories": "pcat_01KVJ8JYMEWT1D5JC9CTK373QM"
+  },
+  "products": [
+    {
+      "id": "prod_01KVJ9RX1VJ6RBQE6GEGVMS0G7",
+      "handle": "orion-shirt",
+      "title": "Orion Shirt"
+    },
+    {
+      "id": "prod_01KVJ9RXPCVW5DCDCNZSH33828",
+      "handle": "nova-hoodie",
+      "title": "Nova Hoodie"
+    },
+    {
+      "id": "prod_01KVJ9RYEY3D6MBGB6XN5P4N2E",
+      "handle": "astra-polo",
+      "title": "Astra Polo"
+    },
+    {
+      "id": "prod_01KVJ9RYVXDV32R69GJ87VSAP3",
+      "handle": "zenith-tank-top",
+      "title": "Zenith Tank Top"
+    },
+    {
+      "id": "prod_01KVJ9RZ54PP2JJ6M084GMR1QZ",
+      "handle": "atlas-joggers",
+      "title": "Atlas Joggers"
+    },
+    {
+      "id": "prod_01KVJ9RZE44S0MV12WYKJE5XZS",
+      "handle": "helios-chinos",
+      "title": "Helios Chinos"
+    },
+    {
+      "id": "prod_01KVJ9S049RE1DFT9A5GPPZMTX",
+      "handle": "luna-cargo-pants",
+      "title": "Luna Cargo Pants"
+    },
+    {
+      "id": "prod_01KVJ9S0J2RDR5272ZEWZ5Q6J8",
+      "handle": "vega-cap",
+      "title": "Vega Cap"
+    },
+    {
+      "id": "prod_01KVJ9S0VE3ZEWQGJTGYMJFXTW",
+      "handle": "sirius-beanie",
+      "title": "Sirius Beanie"
+    },
+    {
+      "id": "prod_01KVJ9S15CB6FTVR6KT88TJHQ1",
+      "handle": "aurora-tote-bag",
+      "title": "Aurora Tote Bag"
+    },
+    {
+      "id": "prod_01KV377AWEYRNQRJZF6YXQSJEX",
+      "handle": "sweatshirt",
+      "title": "Medusa Sweatshirt"
+    },
+    {
+      "id": "prod_01KV377AWEYVYPRVY3JSHV1EQV",
+      "handle": "t-shirt",
+      "title": "Medusa T-Shirt"
+    },
+    {
+      "id": "prod_01KV377AWF59VBZYENDKV0H9NK",
+      "handle": "sweatpants",
+      "title": "Medusa Sweatpants"
+    },
+    {
+      "id": "prod_01KV377AWFY057RPB2EMHNNGTB",
+      "handle": "shorts",
+      "title": "Medusa Shorts"
+    }
+  ],
+  "customer": {
+    "id": "cus_01KVD730ZW7B0NKNPZ6C4CKP8G",
+    "email": "john@test.com"
+  },
+  "promo": {
+    "id": "promo_01KVJS872C8ARN4Y3CQ0EJM45Q",
+    "code": "TEST10"
+  }
+}

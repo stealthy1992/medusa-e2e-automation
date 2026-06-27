@@ -1,0 +1,62 @@
+{
+  "consumer": { "name": "MedusaStorefrontClient" },
+  "provider": { "name": "MedusaStoreAPI" },
+  "interactions": [
+    {
+      "description": "a request for a cart by ID",
+      "request": {
+        "method": "GET",
+        "path": "/store/carts/cart_01",
+        "headers": {
+          "x-publishable-api-key": "pk_fd323a11f1d1ef3641386b1067e890fc2c8054989c26bcfd06119a478c428455"
+        }
+      },
+      "response": {
+        "status": 200,
+        "headers": { "Content-Type": "application/json" },
+        "body": {
+          "cart": {
+            "id": "cart_01",
+            "items": [
+              {
+                "id": "item_01",
+                "title": "Medusa Sweatshirt",
+                "quantity": 1,
+                "unit_price": 4000,
+                "subtotal": 4000
+              }
+            ],
+            "subtotal": 4000,
+            "discount_total": 0,
+            "shipping_total": 0,
+            "total": 4000,
+            "currency_code": "usd",
+            "region": {
+              "id": "reg_01",
+              "name": "North America",
+              "currency_code": "usd"
+            }
+          }
+        },
+        "matchingRules": {
+          "$.body.cart.id": { "match": "type" },
+          "$.body.cart.items": { "match": "type", "min": 1 },
+          "$.body.cart.items[*].id": { "match": "type" },
+          "$.body.cart.items[*].title": { "match": "type" },
+          "$.body.cart.items[*].quantity": { "match": "type" },
+          "$.body.cart.items[*].unit_price": { "match": "type" },
+          "$.body.cart.items[*].subtotal": { "match": "type" },
+          "$.body.cart.subtotal": { "match": "type" },
+          "$.body.cart.discount_total": { "match": "type" },
+          "$.body.cart.shipping_total": { "match": "type" },
+          "$.body.cart.total": { "match": "type" },
+          "$.body.cart.currency_code": { "match": "type" },
+          "$.body.cart.region.id": { "match": "type" },
+          "$.body.cart.region.name": { "match": "type" },
+          "$.body.cart.region.currency_code": { "match": "type" }
+        }
+      }
+    }
+  ],
+  "metadata": { "pactSpecification": { "version": "2.0.0" } }
+}

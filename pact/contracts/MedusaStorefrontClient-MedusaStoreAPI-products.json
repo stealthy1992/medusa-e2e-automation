@@ -1,0 +1,57 @@
+{
+  "consumer": { "name": "MedusaStorefrontClient" },
+  "provider": { "name": "MedusaStoreAPI" },
+  "interactions": [
+    {
+      "description": "a request for the product list",
+      "request": {
+        "method": "GET",
+        "path": "/store/products",
+        "headers": {
+          "x-publishable-api-key": "pk_fd323a11f1d1ef3641386b1067e890fc2c8054989c26bcfd06119a478c428455"
+        }
+      },
+      "response": {
+        "status": 200,
+        "headers": { "Content-Type": "application/json" },
+        "body": {
+          "products": [
+            {
+              "id": "prod_01",
+              "title": "Medusa Sweatshirt",
+              "handle": "sweatshirt",
+              "variants": [
+                {
+                  "id": "variant_01",
+                  "title": "S / Black",
+                  "prices": [
+                    { "amount": 4000, "currency_code": "usd" }
+                  ]
+                }
+              ]
+            }
+          ],
+          "count": 1,
+          "offset": 0,
+          "limit": 12
+        },
+        "matchingRules": {
+          "$.body.products": { "match": "type", "min": 1 },
+          "$.body.products[*].id": { "match": "type" },
+          "$.body.products[*].title": { "match": "type" },
+          "$.body.products[*].handle": { "match": "type" },
+          "$.body.products[*].variants": { "match": "type", "min": 1 },
+          "$.body.products[*].variants[*].id": { "match": "type" },
+          "$.body.products[*].variants[*].title": { "match": "type" },
+          "$.body.products[*].variants[*].prices": { "match": "type", "min": 1 },
+          "$.body.products[*].variants[*].prices[*].amount": { "match": "type" },
+          "$.body.products[*].variants[*].prices[*].currency_code": { "match": "type" },
+          "$.body.count": { "match": "type" },
+          "$.body.offset": { "match": "type" },
+          "$.body.limit": { "match": "type" }
+        }
+      }
+    }
+  ],
+  "metadata": { "pactSpecification": { "version": "2.0.0" } }
+}
