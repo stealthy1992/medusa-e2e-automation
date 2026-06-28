@@ -1,0 +1,23 @@
+# Environment variables
+.env
+.env.local
+.env.*.local
+
+# Playwright
+test-results/
+playwright-report/
+allure-results/
+allure-report/
+auth.json
+
+# Node
+node_modules/
+
+# Pact contracts (generated)
+pact/contracts/
+
+# Seed data (contains live IDs)
+fixtures/seed-data.json
+
+# OS
+.DS_Store
