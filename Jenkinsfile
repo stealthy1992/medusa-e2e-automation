@@ -3,6 +3,7 @@ pipeline {
 
     tools {
         nodejs 'NodeJS-22'
+        allure 'allure'
     }
 
     options {
@@ -21,13 +22,13 @@ pipeline {
         stage('Install Dependencies') {
             steps {
                 sh 'npm ci'
-                sh 'npx playwright install chromium --with-deps'
+                sh 'npx playwright install chromium'
             }
         }
 
         stage('Playwright - API Tests') {
             steps {
-                catchError(buildResult: 'UNSTABLE', stageResult: 'FAILURE') {
+                catchError(buildResult: 'UNSTABLE', stageResult: 'UNSTABLE') {
                     sh 'npx playwright test --project=api --reporter=list,allure-playwright'
                 }
             }
@@ -35,7 +36,7 @@ pipeline {
 
         stage('Playwright - Storefront Tests') {
             steps {
-                catchError(buildResult: 'UNSTABLE', stageResult: 'FAILURE') {
+                catchError(buildResult: 'UNSTABLE', stageResult: 'UNSTABLE') {
                     sh 'npx playwright test --project=storefront --reporter=list,allure-playwright'
                 }
             }
@@ -43,7 +44,7 @@ pipeline {
 
         stage('Playwright - Admin Tests') {
             steps {
-                catchError(buildResult: 'UNSTABLE', stageResult: 'FAILURE') {
+                catchError(buildResult: 'UNSTABLE', stageResult: 'UNSTABLE') {
                     sh 'npx playwright test --project=admin --reporter=list,allure-playwright'
                 }
             }
@@ -51,7 +52,7 @@ pipeline {
 
         stage('Playwright - Pact Tests') {
             steps {
-                catchError(buildResult: 'UNSTABLE', stageResult: 'FAILURE') {
+                catchError(buildResult: 'UNSTABLE', stageResult: 'UNSTABLE') {
                     sh 'npx playwright test --project=pact --reporter=list,allure-playwright'
                 }
             }
@@ -59,7 +60,7 @@ pipeline {
 
         stage('Playwright - Visual Regression') {
             steps {
-                catchError(buildResult: 'UNSTABLE', stageResult: 'FAILURE') {
+                catchError(buildResult: 'UNSTABLE', stageResult: 'UNSTABLE') {
                     sh 'npx playwright test --project=visual --reporter=list,allure-playwright'
                 }
             }
@@ -67,7 +68,7 @@ pipeline {
 
         stage('DB Assertions') {
             steps {
-                catchError(buildResult: 'UNSTABLE', stageResult: 'FAILURE') {
+                catchError(buildResult: 'UNSTABLE', stageResult: 'UNSTABLE') {
                     sh 'npx playwright test tests/api/db-assertions.spec.js --project=api --reporter=list,allure-playwright'
                 }
             }
@@ -75,7 +76,7 @@ pipeline {
 
         stage('k6 Load Test') {
             steps {
-                catchError(buildResult: 'UNSTABLE', stageResult: 'FAILURE') {
+                catchError(buildResult: 'UNSTABLE', stageResult: 'UNSTABLE') {
                     sh 'k6 run --out influxdb=http://localhost:8086/k6 k6/medusa-load-test.js'
                 }
             }
@@ -83,7 +84,7 @@ pipeline {
 
         stage('ZAP Security Scan') {
             steps {
-                catchError(buildResult: 'UNSTABLE', stageResult: 'FAILURE') {
+                catchError(buildResult: 'UNSTABLE', stageResult: 'UNSTABLE') {
                     sh '''
                         docker run --rm \
                           -v /opt/zap-medusa-scripts:/zap/scripts/:rw \
@@ -134,7 +135,7 @@ pipeline {
         }
 
         failure {
-            echo 'Pipeline failed.'
+            echo 'Pipeline failed — infrastructure or configuration error.'
         }
     }
 }
