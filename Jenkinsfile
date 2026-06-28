@@ -26,6 +26,14 @@ pipeline {
             }
         }
 
+        stage('Inject Environment') {
+            steps {
+                withCredentials([file(credentialsId: 'medusa-e2e-env', variable: 'ENV_FILE')]) {
+                    sh 'cp $ENV_FILE .env'
+                }
+            }
+        }
+
         stage('Playwright - API Tests') {
             steps {
                 catchError(buildResult: 'UNSTABLE', stageResult: 'UNSTABLE') {
